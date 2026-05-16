@@ -1,6 +1,6 @@
 {
-  "name": "Portafolio de Desarrollador",
-  "description": "Portafolio profesional avanzado con React 19, Next.js patterns, Zustand, TanStack Query y un Asistente de IA integrado (Gemini). Enfocado en UI/UX moderna con glassmorphism y optimización de rendimiento.",
+  "name": "Portafolio de desarrollador",
+  "description": "Portafolio profesional con React 19, Next.js patterns, Zustand, TanStack Query y un Asistente de IA integrado (Gemini).",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
