@@ -1,33 +1,84 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from './providers';
 import { Toaster } from '@/src/components/ui/sonner';
 import './globals.css';
 
+const SITE_URL = 'https://portfolio-giampiers-projects.vercel.app';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://giampier-portfolio.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Giampier Aliaga — Software Developer',
     template: '%s | Giampier Aliaga',
   },
   description:
-    'Portafolio de Giampier Aliaga, desarrollador fullstack especializado en React, Next.js, TypeScript, Node.js y arquitecturas cloud.',
-  keywords: ['Giampier Aliaga', 'desarrollador fullstack', 'React', 'Next.js', 'TypeScript', 'Node.js', 'portafolio'],
-  authors: [{ name: 'Giampier Aliaga' }],
+    'Portafolio de Giampier Aliaga, desarrollador fullstack especializado en React, Next.js, TypeScript, Node.js y arquitecturas cloud con integración de IA.',
+  keywords: [
+    'Giampier Aliaga',
+    'desarrollador fullstack',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Node.js',
+    'Vercel AI SDK',
+    'portafolio',
+    'software developer Perú',
+  ],
+  authors: [{ name: 'Giampier Aliaga', url: SITE_URL }],
   creator: 'Giampier Aliaga',
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'es_PE',
     url: '/',
     siteName: 'Giampier Aliaga',
     title: 'Giampier Aliaga — Software Developer',
-    description: 'Portafolio fullstack: React, Next.js, Node.js y cloud.',
+    description:
+      'Portafolio fullstack: React, Next.js, Node.js, cloud e integración con IA.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Giampier Aliaga — Software Developer',
-    description: 'Portafolio fullstack: React, Next.js, Node.js y cloud.',
+    description:
+      'Portafolio fullstack: React, Next.js, Node.js, cloud e integración con IA.',
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+};
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Giampier Aliaga Esquivel',
+  url: SITE_URL,
+  image: `${SITE_URL}/opengraph-image`,
+  jobTitle: 'Software Developer',
+  description:
+    'Desarrollador fullstack junior con foco en React, Next.js, TypeScript, Node.js y arquitecturas cloud con integración de IA.',
+  email: 'mailto:giampieraliagaesquivel@gmail.com',
+  knowsAbout: [
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Node.js',
+    'Python',
+    'PostgreSQL',
+    'AWS',
+    'Vercel',
+    'Tailwind CSS',
+    'Vercel AI SDK',
+  ],
+  knowsLanguage: ['Spanish', 'English'],
+  sameAs: [
+    'https://github.com/Giampier-pixel',
+    'https://www.linkedin.com/in/giampier-aliaga-esquivel',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,6 +95,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Toaster />
         </Providers>
+        <Script
+          id="person-jsonld"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

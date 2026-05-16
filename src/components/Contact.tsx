@@ -42,18 +42,18 @@ export function Contact() {
   }, [state, getValues, reset]);
 
   return (
-    <section id="contact" className="py-24 px-4 bg-pearl flex justify-center">
+    <section id="contact" className="py-24 px-4 bg-pearl light:bg-white flex justify-center">
       <div className="max-w-6xl w-full relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-navy rounded-[2rem] overflow-hidden relative border border-platinum/20 shadow-2xl"
+          className="bg-navy light:bg-white rounded-[2rem] overflow-hidden relative border border-platinum/20 light:border-slate-200 shadow-2xl light:shadow-[0_30px_80px_-20px_rgba(4,25,28,0.18)]"
         >
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20 light:opacity-40">
             <div className="absolute w-[800px] h-[800px] border-[1px] border-rosegold rounded-full blur-[2px] -bottom-[400px] -left-[200px]" />
             <div className="absolute w-[600px] h-[600px] border-[1px] border-rosegold rounded-full blur-[1px] -bottom-[200px] -left-[100px]" />
-            <div className="absolute w-[1000px] h-[1000px] border-[1px] border-platinum rounded-full blur-[3px] -bottom-[500px] -left-[300px]" />
+            <div className="absolute w-[1000px] h-[1000px] border-[1px] border-platinum light:border-rosegold/40 rounded-full blur-[3px] -bottom-[500px] -left-[300px]" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 p-8 md:p-16 relative z-10 items-center">
@@ -63,12 +63,12 @@ export function Contact() {
                 <br />
                 <span className="text-pearl">Hagamos tu visión realidad</span>
               </h2>
-              <p className="text-platinum/70 text-lg">
+              <p className="text-platinum/70 light:text-slate-600 text-lg">
                 ¿Tienes un proyecto en mente o solo quieres charlar? ¡Conectemos!
               </p>
             </div>
 
-            <div className="bg-[#020d0f]/50 backdrop-blur-md p-8 rounded-2xl border border-pearl/5 shadow-inner">
+            <div className="bg-[#020d0f]/50 light:bg-slate-50 backdrop-blur-md p-8 rounded-2xl border border-pearl/5 light:border-slate-200 shadow-inner">
               <form
                 ref={formRef}
                 action={action}

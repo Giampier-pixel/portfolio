@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant light (&:where(.light, .light *));
+
 @theme {
   --color-navy: var(--theme-navy);
   --color-platinum: var(--theme-platinum);

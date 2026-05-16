@@ -19,7 +19,7 @@ const ProjectCard = memo(function ProjectCard({ project }: { project: Project })
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 8 }}
       transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
-      className="bg-navy/40 backdrop-blur-xl rounded-[2rem] overflow-hidden border border-pearl/10 shadow-lg group hover:shadow-[0_20px_40px_rgba(183,110,121,0.15)] hover:border-rosegold/30 hover:-translate-y-1 transition-all duration-300 flex flex-col relative h-full"
+      className="bg-navy/40 light:bg-white backdrop-blur-xl rounded-[2rem] overflow-hidden border border-pearl/10 light:border-slate-200 shadow-lg light:shadow-[0_8px_30px_rgba(4,25,28,0.08)] group hover:shadow-[0_20px_40px_rgba(183,110,121,0.15)] hover:border-rosegold/30 hover:-translate-y-1 transition-all duration-300 flex flex-col relative h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-rosegold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -36,13 +36,13 @@ const ProjectCard = memo(function ProjectCard({ project }: { project: Project })
 
       <div className="p-8 flex flex-col flex-grow relative z-20">
         <h3 className="text-2xl font-semibold text-pearl mb-3">{project.title}</h3>
-        <p className="text-platinum/70 text-base mb-8 flex-grow leading-relaxed">{project.description}</p>
+        <p className="text-platinum/70 light:text-slate-600 text-base mb-8 flex-grow leading-relaxed">{project.description}</p>
 
         <div className="flex flex-wrap gap-2 mb-6">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-pearl/5 text-platinum text-xs rounded-full font-medium border border-pearl/10"
+              className="px-3 py-1 bg-pearl/5 light:bg-slate-100 text-platinum light:text-slate-700 text-xs rounded-full font-medium border border-pearl/10 light:border-slate-200"
             >
               {tag}
             </span>
@@ -91,9 +91,9 @@ export function Projects() {
   }, [projects, activeTab, debouncedSearch]);
 
   return (
-    <section id="projects" className="py-24 px-4 bg-navy relative overflow-hidden">
-      <div className="absolute top-[30%] -left-[10%] w-[500px] h-[500px] bg-rosegold/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-pearl/5 rounded-full blur-[150px] pointer-events-none" />
+    <section id="projects" className="py-24 px-4 bg-navy light:bg-slate-50 relative overflow-hidden">
+      <div className="absolute top-[30%] -left-[10%] w-[500px] h-[500px] bg-rosegold/10 light:bg-rosegold/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-pearl/5 light:bg-rosegold/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -109,7 +109,7 @@ export function Projects() {
               placeholder="Buscar por tecnología o título..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-12 h-12 rounded-2xl border-pearl/30"
+              className="pl-12 h-12 rounded-2xl border-pearl/30 light:border-slate-300 light:bg-white"
               aria-label="Buscar proyectos"
             />
           </div>
@@ -136,7 +136,7 @@ export function Projects() {
                 {[1, 2].map((n) => (
                   <div
                     key={n}
-                    className="bg-navy/40 rounded-[2rem] h-[450px] animate-pulse border border-pearl/10"
+                    className="bg-navy/40 light:bg-slate-200 rounded-[2rem] h-[450px] animate-pulse border border-pearl/10 light:border-slate-300"
                   />
                 ))}
               </motion.div>
@@ -162,7 +162,7 @@ export function Projects() {
                 transition={{ duration: 0.18 }}
                 className="col-span-full flex flex-col items-center justify-center py-20 text-center"
               >
-                <p className="text-platinum/40 text-xl">No se encontraron proyectos con esos criterios.</p>
+                <p className="text-platinum/40 light:text-slate-500 text-xl">No se encontraron proyectos con esos criterios.</p>
               </motion.div>
             )}
           </AnimatePresence>

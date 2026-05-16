@@ -5,6 +5,7 @@ import { About } from '@/src/components/About';
 import { Projects } from '@/src/components/Projects';
 import { Contact } from '@/src/components/Contact';
 import { PortfolioChat } from '@/src/components/PortfolioChat';
+import { CommandPalette } from '@/src/components/CommandPalette';
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
         <PortfolioChat />
       </main>
       <Footer />
+      <CommandPalette />
     </>
   );
 }

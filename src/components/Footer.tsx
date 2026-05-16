@@ -20,11 +20,11 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy py-12 px-4 border-t border-pearl/5">
+    <footer className="bg-navy light:bg-slate-100 py-12 px-4 border-t border-pearl/5 light:border-slate-200">
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center gap-6 text-center">
         <div>
           <h2 className="text-xl font-bold text-pearl tracking-tight mb-2">Giampier Aliaga</h2>
-          <p className="text-platinum/60 text-sm">
+          <p className="text-platinum/60 light:text-slate-600 text-sm">
             Diseñado con amor, todos los derechos reservados para Giampier Aliaga.
           </p>
         </div>
@@ -37,7 +37,7 @@ export function Footer() {
                 key={label}
                 href={href}
                 {...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })}
-                className="w-10 h-10 rounded-full bg-pearl hover:bg-rosegold flex items-center justify-center text-navy transition-colors"
+                className="w-10 h-10 rounded-full bg-pearl light:bg-navy hover:bg-rosegold light:hover:bg-rosegold flex items-center justify-center text-navy light:text-pearl hover:text-pearl transition-colors"
                 aria-label={label}
               >
                 <Icon className="w-5 h-5" />

@@ -11,10 +11,10 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-navy flex flex-col pt-24 overflow-hidden"
+      className="relative min-h-screen bg-navy light:bg-slate-50 flex flex-col pt-24 overflow-hidden"
     >
-      <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-rosegold/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-platinum/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-rosegold/10 light:bg-rosegold/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-platinum/5 light:bg-rosegold/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow flex flex-col justify-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -89,11 +89,11 @@ export function Hero() {
       </div>
 
       <div className="w-full mt-16 pb-8">
-        <div className="max-w-6xl mx-auto px-4 flex justify-between gap-6 overflow-x-auto text-platinum/40 font-medium text-sm md:text-lg tracking-[0.2em] md:tracking-[0.3em] uppercase">
+        <div className="max-w-6xl mx-auto px-4 flex justify-between gap-6 overflow-x-auto text-platinum/40 light:text-slate-500 font-medium text-sm md:text-lg tracking-[0.2em] md:tracking-[0.3em] uppercase">
           {SKILLS.map((skill) => (
             <span
               key={skill}
-              className="hover:text-platinum/80 transition-colors cursor-default whitespace-nowrap"
+              className="hover:text-platinum/80 light:hover:text-slate-800 transition-colors cursor-default whitespace-nowrap"
             >
               {skill}
             </span>
