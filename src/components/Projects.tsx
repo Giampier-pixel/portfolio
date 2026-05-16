@@ -15,13 +15,11 @@ import type { Project, ProjectCategory } from '@/src/types';
 const ProjectCard = memo(function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.article
-      layout
-      initial={{ opacity: 0, scale: 0.95, y: 20 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95, y: -20 }}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="bg-navy/40 backdrop-blur-xl rounded-[2rem] overflow-hidden border border-pearl/10 shadow-lg group hover:shadow-[0_20px_40px_rgba(183,110,121,0.15)] hover:border-rosegold/30 transition-all duration-300 flex flex-col relative h-full"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 8 }}
+      transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+      className="bg-navy/40 backdrop-blur-xl rounded-[2rem] overflow-hidden border border-pearl/10 shadow-lg group hover:shadow-[0_20px_40px_rgba(183,110,121,0.15)] hover:border-rosegold/30 hover:-translate-y-1 transition-all duration-300 flex flex-col relative h-full"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-rosegold/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -124,25 +122,51 @@ export function Projects() {
           </Tabs>
         </div>
 
-        <motion.div layout className="grid md:grid-cols-2 gap-8 relative z-20 min-h-[400px]">
-          <AnimatePresence mode="popLayout">
+        <div className="grid md:grid-cols-2 gap-8 relative z-20 min-h-[400px]">
+          <AnimatePresence mode="wait" initial={false}>
             {isLoading ? (
-              [1, 2].map((n) => (
-                <div key={n} className="bg-navy/40 rounded-[2rem] h-[450px] animate-pulse border border-pearl/10" />
-              ))
-            ) : filteredProjects.length > 0 ? (
-              filteredProjects.map((project) => <ProjectCard key={project.id} project={project} />)
-            ) : (
               <motion.div
+                key="loading"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18 }}
+                className="col-span-full grid md:grid-cols-2 gap-8"
+              >
+                {[1, 2].map((n) => (
+                  <div
+                    key={n}
+                    className="bg-navy/40 rounded-[2rem] h-[450px] animate-pulse border border-pearl/10"
+                  />
+                ))}
+              </motion.div>
+            ) : filteredProjects.length > 0 ? (
+              <motion.div
+                key={`grid-${activeTab}-${debouncedSearch}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18, ease: 'easeOut' }}
+                className="col-span-full grid md:grid-cols-2 gap-8"
+              >
+                {filteredProjects.map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.18 }}
                 className="col-span-full flex flex-col items-center justify-center py-20 text-center"
               >
                 <p className="text-platinum/40 text-xl">No se encontraron proyectos con esos criterios.</p>
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

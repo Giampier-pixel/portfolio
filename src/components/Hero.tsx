@@ -75,7 +75,7 @@ export function Hero() {
             >
               <div className="w-[70%] max-w-[320px] aspect-[4/5] relative z-30 flex items-end justify-center">
                 <Image
-                  src="/hero-nobg.png"
+                  src="/hero.png"
                   alt="Foto de Giampier Aliaga"
                   fill
                   priority

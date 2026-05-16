@@ -17,8 +17,8 @@ import { Button } from '@/src/components/ui/button';
 
 const SOCIALS = [
   { Icon: Instagram, href: '#', label: 'Instagram' },
-  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { Icon: Github, href: '#', label: 'GitHub' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/in/giampier-aliaga-esquivel', label: 'LinkedIn' },
+  { Icon: Github, href: 'https://github.com/Giampier-pixel', label: 'GitHub' },
   { Icon: Twitter, href: '#', label: 'Twitter' },
 ];
 
@@ -44,13 +44,13 @@ export function About() {
             className="md:col-span-4 bg-navy/90 backdrop-blur-xl border border-navy/10 rounded-[2rem] p-6 flex flex-col items-center text-center shadow-2xl h-full relative overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-rosegold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="w-full aspect-[4/5] rounded-[1.5rem] bg-platinum/5 mb-8 overflow-hidden relative flex items-center justify-center">
+            <div className="w-full aspect-[4/5] rounded-[1.5rem] bg-gradient-to-b from-pearl/10 to-pearl/5 mb-8 overflow-hidden relative flex items-end justify-center">
               <Image
-                src="/about.jpg"
+                src="/about.png"
                 alt="Fotografía profesional de Giampier Aliaga"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-contain object-bottom"
               />
             </div>
 
