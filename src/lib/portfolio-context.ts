@@ -1,8 +1,3 @@
-/**
- * Contexto del portafolio inyectado al system prompt del LLM.
- * Editar este archivo para actualizar la información que el asistente IA conoce.
- * Cabe en el contexto de Gemini Flash sin problema (1M tokens disponibles).
- */
 export const PORTFOLIO_CONTEXT = `
 # Sobre Giampier Aliaga
 Desarrollador fullstack con enfoque en código limpio, diseño cuidado y soluciones escalables.

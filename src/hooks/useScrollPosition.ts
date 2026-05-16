@@ -1,10 +1,4 @@
 import { useState, useEffect } from 'react';
-
-/**
- * Custom hook to track the vertical scroll position of the window.
- * Shows advanced React knowledge: custom hooks, event linteners cleanup, 
- * and performance optimization using passive event listeners.
- */
 export function useScrollPosition() {
   const [scrollPosition, setScrollPosition] = useState(0);
 

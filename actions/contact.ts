@@ -20,8 +20,6 @@ export async function sendContactEmail(
   }
 
   try {
-    // Aquí se integra el envío real con Resend, Nodemailer, etc.
-    // Por ahora, log + simulación de latencia para no bloquear la UX local.
     console.log('[contact] mensaje recibido:', parsed.data);
     await new Promise((resolve) => setTimeout(resolve, 700));
     return { success: true, data: undefined };
